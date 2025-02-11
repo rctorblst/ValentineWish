@@ -132,11 +132,6 @@
             Will you be my Valentine?
           </h2>
           
-          <!-- New extra message container (initially hidden) -->
-          <div id="extraMessage" style="display: none; opacity: 0; font-size: 2rem; color: #ff69b4; margin-top: 20px;">
-            <p>I love you more than words can say!</p>
-          </div>
-          
           <!-- Yes/No buttons (initially hidden) -->
           <div id="responseButtons" style="display: none; gap: 20px; justify-content: center;">
             <button id="yesButton" class="yes-btn" 
@@ -148,8 +143,26 @@
               No
             </button>
           </div>
+          
+          <!-- Full-Screen Extra Message Container -->
+          <div id="extraScreenFull" style="display: none; position: fixed; top: 0; left: 0; 
+              width: 100%; height: 100%; background: #fff0f6; z-index: 1000; 
+              padding: 50px; box-sizing: border-box; text-align: center;">
+            <div style="max-width: 800px; margin: 0 auto;">
+              <h1 style="font-size: 3rem; color: #bd1e59; margin-bottom: 20px;">My Heart Speaks</h1>
+              <p style="font-size: 1.5rem; color: #333;">
+                This is my long message... I will write here everything I feel, with details, poems,
+                and even images can be inserted. You can add as much HTML as you like!
+              </p>
+            </div>
+            <!-- Optional side images -->
+            <img src="img/left-deco.png" alt="Left Decoration" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); width: 100px;">
+            <img src="img/right-deco.png" alt="Right Decoration" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); width: 100px;">
+          </div>
+          
           <p class="last-smile">:)</p>
         </div>
+        
         
         <p class="last-smile">:)</p>
       </div>

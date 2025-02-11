@@ -267,29 +267,33 @@ const animationTimeline = () => {
 
 
     
-// At the end of the timeline, reveal the Valentine section and animate the extra message:
+// At the end of the timeline, reveal the Valentine section and animate the full-screen extra message:
 tl.call(() => {
-  // Show the entire Valentine section
+  // Ensure the Valentine section is visible
   document.getElementById("valentineSection").style.display = "block";
   // Hide the yes/no buttons for now
   document.getElementById("responseButtons").style.display = "none";
-  // Show the extra message container and set its opacity to 0
-  const extraMsg = document.getElementById("extraMessage");
-  extraMsg.style.display = "block";
-  extraMsg.style.opacity = 0;
-}, null, "+=1") // adjust delay as needed
+  // Prepare the full-screen extra message:
+  const extraScreen = document.getElementById("extraScreenFull");
+  extraScreen.style.display = "block";
+  extraScreen.style.opacity = 0;
+}, null, "+=1");  // Adjust the delay as needed
 
-// Fade in the extra message over 1 second
-.to("#extraMessage", 1, { opacity: 1 })
+// Fade in the full-screen extra message over 1 second:
+tl.to("#extraScreenFull", 1, { opacity: 1 });
 
-// Hold the extra message for 2 seconds, then fade it out over 1 second
-.to("#extraMessage", 1, { opacity: 0 }, "+=2")
+// Hold it on screen longer (5 seconds here; adjust as needed):
+tl.to("#extraScreenFull", 1, { opacity: 1 }, "+=5");
 
-// Finally, hide the extra message and reveal the yes/no buttons
-.call(() => {
-  document.getElementById("extraMessage").style.display = "none";
+// Fade it out over 1 second:
+tl.to("#extraScreenFull", 1, { opacity: 0 });
+
+// Finally, hide the full-screen extra message and reveal the yes/no buttons:
+tl.call(() => {
+  document.getElementById("extraScreenFull").style.display = "none";
   document.getElementById("responseButtons").style.display = "flex";
 });
+
 
 
 
