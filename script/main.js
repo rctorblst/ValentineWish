@@ -264,28 +264,10 @@ const animationTimeline = () => {
       },
       "+=1"
     );
-
-// At the end of your timeline, reveal the entire Valentine section
+    // At the end of the timeline, reveal the Valentine prompt section:
 tl.call(() => {
-  // Show the parent container so that the inner elements are visible
   document.getElementById("valentineSection").style.display = "block";
-  // For the extra screen, set it up to fade in
-  const finalScreen = document.getElementById("finalScreen");
-  finalScreen.style.display = "block";
-  finalScreen.style.opacity = 0;
-  // Keep the yes/no buttons hidden for now
-  document.getElementById("responseButtons").style.display = "none";
-}, null, "+=1")
-  // Fade in the extra screen over 1 second
-  .to("#finalScreen", 1, { opacity: 1 })
-  // Hold the extra screen visible for 3 seconds then fade it out over 1 second
-  .to("#finalScreen", 1, { opacity: 0 }, "+=3")
-  // After the fade out, hide the extra screen and reveal the yes/no buttons
-  .call(() => {
-    document.getElementById("finalScreen").style.display = "none";
-    document.getElementById("responseButtons").style.display = "flex";
-  });
-
+}, null, "+=1");  // adjust the delay ("+=1") as needed
 
 
 // Set up interactive behavior for the Valentine prompt:
@@ -323,9 +305,9 @@ noButton.addEventListener('click', function() {
 
     imageDisplay.src = imagePaths[helper];
     // Increase the Yes button's size:
-    buttonHeight += 25;
-    buttonWidth += 25;
-    fontSize += 25;
+    buttonHeight += 15;
+    buttonWidth += 15;
+    fontSize += 15;
     yesButton.style.height = `${buttonHeight}px`;
     yesButton.style.width = `${buttonWidth}px`;
     yesButton.style.fontSize = `${fontSize}px`;
