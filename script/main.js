@@ -265,16 +265,9 @@ const animationTimeline = () => {
       "+=1"
     );
     // At the end of the timeline, reveal the Valentine prompt section:
-    tl.call(() => {
-      document.getElementById("finalScreen").style.display = "block";
-      document.getElementById("responseButtons").style.display = "none";
-    }, null, "+=1");
-    
-    // After a delay, hide the extra screen and show the Yes/No buttons:
-    tl.call(() => {
-      document.getElementById("finalScreen").style.display = "none";
-      document.getElementById("responseButtons").style.display = "flex";
-    }, null, "+=3");
+tl.call(() => {
+  document.getElementById("valentineSection").style.display = "block";
+}, null, "+=1");  // adjust the delay ("+=1") as needed
 
 
 // Set up interactive behavior for the Valentine prompt:
@@ -334,11 +327,13 @@ noButton.addEventListener('click', function() {
     ];
     noButton.textContent = messages[noClickCount] || "No";
 
-        // Re-trigger the bounce animation on the YES button:
-        yesButton.classList.remove("bounce2");
-        void yesButton.offsetWidth;  // Force reflow to reset the animation
-        yesButton.classList.add("bounce2"); 
-      }
+    // (Optional) Re-trigger the bounce animation:
+    // Remove the bounce class (if it was added via HTML, you can force a reflow and then re-add it)
+    noButton.classList.remove("bounce2");
+    // Force a reflow so that the removal takes effect (this makes the browser re-read the CSS)
+    void noButton.offsetWidth;
+    // Add the bounce class back to trigger the animation
+    noButton.classList.add("bounce2");  }
 });
 
 yesButton.addEventListener('click', () => {
