@@ -131,19 +131,39 @@
           <h2 id="valentineQuestion" style="font-size: 2rem; color: #bd1e59; margin-bottom: 20px;">
             Will you be my Valentine?
           </h2>
-          <div id="responseButtons" style="display: flex; gap: 20px; justify-content: center;">
-            <button id="yesButton" class="yes-btn" 
-              style="height: 96px; width: 160px; font-size: 15px; background-color: #34d399; color: white; border: none; border-radius: 5px; padding: 10px; cursor: pointer;">
-              Yes
-            </button>
-            <button id="noButton" class="no-btn bounce2" 
-            style="height: 96px; font-size: 15px; background-color: #f87171; color: white; border: none; border-radius: 5px; padding: 10px 20px; cursor: pointer; min-width: 75px;">
-            No
-          </button>
-          </div>
-        </div>
-        <p class="last-smile">:)</p>
-      </div>
+
+<!-- Wrap the final screen and the yes/no buttons in one container -->
+<div id="valentineContainer" style="text-align: center; margin-top: 20px;">
+  <!-- Extra screen with text and images -->
+  <div id="finalScreen" style="display: none; position: relative; padding: 40px; background: #fff0f6;">
+    <h2 style="font-size: 2.5rem; color: #bd1e59; margin-bottom: 20px;">Forever in my heart...</h2>
+    <p style="font-size: 1.2rem; margin-bottom: 20px;">You make every day brighter with your love.</p>
+    
+    <!-- Corner images -->
+    <img src="img/heart-corner.png" alt="Heart" class="corner-img top-left">
+    <img src="img/heart-corner.png" alt="Heart" class="corner-img top-right">
+    <img src="img/heart-corner.png" alt="Heart" class="corner-img bottom-left">
+    <img src="img/heart-corner.png" alt="Heart" class="corner-img bottom-right">
+  </div>
+  
+  <!-- Yes/No buttons (initially hidden) -->
+  <div id="responseButtons" style="display: none; gap: 20px; justify-content: center; align-items: center;">
+    <button id="yesButton" class="yes-btn bounce2" 
+      style="height: 96px; width: 160px; font-size: 15px; background-color: #34d399; color: white; border: none; border-radius: 5px; padding: 10px; cursor: pointer;">
+      Yes
+    </button>
+    <button id="noButton" class="no-btn bounce2" 
+      style="height: 96px; font-size: 15px; background-color: #f87171; color: white; border: none; border-radius: 5px; padding: 10px 20px; cursor: pointer; min-width: 75px;">
+      No
+    </button>
+  </div>
+</div>
+
+<p class="last-smile">:)</p>
+</div>
+
+
+      
       
   </body>
 
