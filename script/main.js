@@ -314,7 +314,7 @@ noButton.addEventListener('click', function() {
     // Increase the Yes button's size:
     buttonHeight += 15;
     buttonWidth += 15;
-    fontSize += 15;
+    fontSize += 20;
     yesButton.style.height = `${buttonHeight}px`;
     yesButton.style.width = `${buttonWidth}px`;
     yesButton.style.fontSize = `${fontSize}px`;
