@@ -264,15 +264,82 @@ const animationTimeline = () => {
       },
       "+=1"
     );
+    // At the end of the timeline, reveal the Valentine prompt section:
+tl.call(() => {
+  document.getElementById("valentineSection").style.display = "block";
+}, null, "+=1");  // adjust the delay ("+=1") as needed
+
+
+// Set up interactive behavior for the Valentine prompt:
+const yesButton = document.getElementById("yesButton");
+const noButton = document.getElementById("noButton");
+const imageDisplay = document.getElementById("imageDisplay");
+const valentineQuestion = document.getElementById("valentineQuestion");
+const responseButtons = document.getElementById("responseButtons");
+
+let noClickCount = 0;
+let buttonHeight = 48; // starting height in px
+let buttonWidth = 80;  // starting width in px
+let fontSize = 20;     // starting font size in px
+
+// Array of image paths (update these to match your source files)
+const imagePaths = [
+  "img/image1.gif",
+  "img/image2.gif",
+  "img/image3.gif",
+  "img/image4.gif",
+  "img/image5.gif",
+  "img/image6.gif",
+  "img/image7.gif"
+];
+
+noButton.addEventListener('click', function() {
+  if (noClickCount < 5) {
+    noClickCount++;
+    // Change the displayed image on each click
+    imageDisplay.src = imagePaths[noClickCount];
+    // Increase the Yes button's size:
+    buttonHeight += 35;
+    buttonWidth += 35;
+    fontSize += 25;
+    yesButton.style.height = `${buttonHeight}px`;
+    yesButton.style.width = `${buttonWidth}px`;
+    yesButton.style.fontSize = `${fontSize}px`;
+    // Update No button's text:
+    const messages = [
+      "No", 
+      "Are you sure?", 
+      "Pookie please", 
+      "Don't do this to me :(", 
+      "You're breaking my heart", 
+      "I'm gonna cry..."
+    ];
+    noButton.textContent = messages[noClickCount] || "No";
+  }
+});
+
+yesButton.addEventListener('click', () => {
+  // Change to your final image (image7, index 6)
+  imageDisplay.src = imagePaths[6];
+  // Update the question text:
+  valentineQuestion.textContent = "Yayyy!! :3";
+  // Hide the buttons:
+  responseButtons.style.display = 'none';
+  // Trigger a confetti animation.
+  // (Make sure you have loaded confetti; e.g., add this script in your HTML:)
+  // <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+});
+
 
   // tl.seek("currentStep");
   // tl.timeScale(2);
 
   // Restart Animation on click
-  const replyBtn = document.getElementById("replay");
-  replyBtn.addEventListener("click", () => {
-    tl.restart();
-  });
+//   const replyBtn = document.getElementById("replay");
+//   replyBtn.addEventListener("click", () => {
+//     tl.restart();
+//   });
 };
 
 // Import the data to customize and insert them into page
