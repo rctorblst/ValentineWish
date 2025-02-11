@@ -326,7 +326,14 @@ noButton.addEventListener('click', function() {
       "You dont have a choice anymore >:("
     ];
     noButton.textContent = messages[noClickCount] || "No";
-  }
+
+    // (Optional) Re-trigger the bounce animation:
+    // Remove the bounce class (if it was added via HTML, you can force a reflow and then re-add it)
+    noButton.classList.remove("bounce2");
+    // Force a reflow so that the removal takes effect (this makes the browser re-read the CSS)
+    void noButton.offsetWidth;
+    // Add the bounce class back to trigger the animation
+    noButton.classList.add("bounce2");  }
 });
 
 yesButton.addEventListener('click', () => {
