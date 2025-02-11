@@ -264,10 +264,33 @@ const animationTimeline = () => {
       },
       "+=1"
     );
-    // At the end of the timeline, reveal the Valentine prompt section:
+
+
+    
+// At the end of the timeline, reveal the Valentine section and animate the extra message:
 tl.call(() => {
+  // Show the entire Valentine section
   document.getElementById("valentineSection").style.display = "block";
-}, null, "+=1");  // adjust the delay ("+=1") as needed
+  // Hide the yes/no buttons for now
+  document.getElementById("responseButtons").style.display = "none";
+  // Show the extra message container and set its opacity to 0
+  const extraMsg = document.getElementById("extraMessage");
+  extraMsg.style.display = "block";
+  extraMsg.style.opacity = 0;
+}, null, "+=1") // adjust delay as needed
+
+// Fade in the extra message over 1 second
+.to("#extraMessage", 1, { opacity: 1 })
+
+// Hold the extra message for 2 seconds, then fade it out over 1 second
+.to("#extraMessage", 1, { opacity: 0 }, "+=2")
+
+// Finally, hide the extra message and reveal the yes/no buttons
+.call(() => {
+  document.getElementById("extraMessage").style.display = "none";
+  document.getElementById("responseButtons").style.display = "flex";
+});
+
 
 
 // Set up interactive behavior for the Valentine prompt:
@@ -305,9 +328,9 @@ noButton.addEventListener('click', function() {
 
     imageDisplay.src = imagePaths[helper];
     // Increase the Yes button's size:
-    buttonHeight += 15;
-    buttonWidth += 15;
-    fontSize += 15;
+    buttonHeight += 25;
+    buttonWidth += 25;
+    fontSize += 25;
     yesButton.style.height = `${buttonHeight}px`;
     yesButton.style.width = `${buttonWidth}px`;
     yesButton.style.fontSize = `${fontSize}px`;
