@@ -305,9 +305,9 @@ noButton.addEventListener('click', function() {
 
     imageDisplay.src = imagePaths[helper];
     // Increase the Yes button's size:
-    buttonHeight += 35;
-    buttonWidth += 35;
-    fontSize += 25;
+    buttonHeight += 15;
+    buttonWidth += 15;
+    fontSize += 15;
     yesButton.style.height = `${buttonHeight}px`;
     yesButton.style.width = `${buttonWidth}px`;
     yesButton.style.fontSize = `${fontSize}px`;
