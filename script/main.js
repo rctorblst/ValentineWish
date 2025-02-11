@@ -278,9 +278,10 @@ const valentineQuestion = document.getElementById("valentineQuestion");
 const responseButtons = document.getElementById("responseButtons");
 
 let noClickCount = 0;
-let buttonHeight = 48*1.5; // starting height in px
-let buttonWidth = 80*1.5;  // starting width in px
-let fontSize = 20;     // starting font size in px
+let helper = 0;
+let buttonHeight = 48*2; // starting height in px
+let buttonWidth = 80*2;  // starting width in px
+let fontSize = 15;     // starting font size in px
 
 // Array of image paths (update these to match your source files)
 const imagePaths = [
@@ -297,12 +298,12 @@ noButton.addEventListener('click', function() {
   if (noClickCount < 10) {
     noClickCount++;
     // Change the displayed image on each click
-    trg = noClickCount
-    if(trg > 5){
-      trg = 5
+    helper = noClickCount
+    if (helper > 5) {
+      helper = 5;
     }
 
-    imageDisplay.src = imagePaths[trg];
+    imageDisplay.src = imagePaths[helper];
     // Increase the Yes button's size:
     buttonHeight += 35;
     buttonWidth += 35;
