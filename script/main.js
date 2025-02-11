@@ -275,48 +275,6 @@ const animationTimeline = () => {
   });
 };
 
-const yesButton = document.getElementById('yesButton');
-const noButton = document.getElementById('noButton');
-const valentineText = document.querySelector('.valentine-text');
-const lastSmile = document.querySelector('.last-smile');
-
-let noClickCount = 0;
-let buttonSize = 18; // Initial font size
-let buttonPadding = 10; // Initial padding
-
-noButton.addEventListener('click', () => {
-  if (noClickCount < 5) {
-    noClickCount++;
-    buttonSize += 10;
-    buttonPadding += 5;
-    
-    yesButton.style.fontSize = `${buttonSize}px`;
-    yesButton.style.padding = `${buttonPadding}px ${buttonPadding * 2}px`;
-
-    const messages = [
-      "No", 
-      "Are you sure?", 
-      "Pookie please 🥺", 
-      "Don't do this to me :(", 
-      "You're breaking my heart 💔", 
-      "I'm gonna cry... 😭"
-    ];
-
-    noButton.textContent = messages[noClickCount] || "Please say yes!";
-  }
-});
-
-yesButton.addEventListener('click', () => {
-  valentineText.textContent = "Yayyy!! 💖";
-  lastSmile.textContent = "🥰";
-  document.querySelector('.button-container').style.display = 'none';
-
-  // Confetti Effect
-  const confettiSettings = { particleCount: 100, spread: 70, origin: { y: 0.6 } };
-  confetti(confettiSettings);
-});
-
-
 // Import the data to customize and insert them into page
 const fetchData = () => {
   fetch("customize.json")
