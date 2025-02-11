@@ -278,8 +278,8 @@ const valentineQuestion = document.getElementById("valentineQuestion");
 const responseButtons = document.getElementById("responseButtons");
 
 let noClickCount = 0;
-let buttonHeight = 48; // starting height in px
-let buttonWidth = 80;  // starting width in px
+let buttonHeight = 48*1.5; // starting height in px
+let buttonWidth = 80*1.5;  // starting width in px
 let fontSize = 20;     // starting font size in px
 
 // Array of image paths (update these to match your source files)
@@ -294,10 +294,15 @@ const imagePaths = [
 ];
 
 noButton.addEventListener('click', function() {
-  if (noClickCount < 5) {
+  if (noClickCount < 10) {
     noClickCount++;
     // Change the displayed image on each click
-    imageDisplay.src = imagePaths[noClickCount];
+    trg = noClickCount
+    if(trg > 5){
+      trg = 5
+    }
+
+    imageDisplay.src = imagePaths[trg];
     // Increase the Yes button's size:
     buttonHeight += 35;
     buttonWidth += 35;
@@ -309,10 +314,15 @@ noButton.addEventListener('click', function() {
     const messages = [
       "No", 
       "Are you sure?", 
-      "Pookie please", 
+      "Booboo please", 
       "Don't do this to me :(", 
       "You're breaking my heart", 
-      "I'm gonna cry..."
+      "I'm gonna cry...",
+      "Nooo...",
+      "Me sad",
+      "Me big big sad :(",
+      "Okay stopp",
+      "You dont have a choice anymore >:("
     ];
     noButton.textContent = messages[noClickCount] || "No";
   }
