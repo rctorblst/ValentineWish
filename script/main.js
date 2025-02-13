@@ -266,38 +266,37 @@ const animationTimeline = () => {
     );
 
 
+
+    // Fade in the full-screen extra message over 1 second:
+    tl.to("#extraScreenFull", 1, { opacity: 1 });
     
-// At the end of the timeline, reveal the Valentine section and animate the full-screen extra message:
-tl.call(() => {
-  // Ensure the Valentine section is visible
-  document.getElementById("valentineSection").style.display = "block";
-  // Hide the yes/no buttons for now
-  document.getElementById("responseButtons").style.display = "none";
-  // Prepare the full-screen extra message:
-  const extraScreen = document.getElementById("extraScreenFull");
-  extraScreen.style.display = "block";
-  extraScreen.style.opacity = 0;
-}, null, "+=1");  // Adjust the delay as needed
+    // Hold it on screen longer (5 seconds here; adjust as needed):
+    tl.to("#extraScreenFull", 1, { opacity: 1 }, "+=10");
+    
+    // Fade it out over 1 second:
+    tl.to("#extraScreenFull", 1, { opacity: 0 });
+    
+    // Finally, hide the full-screen extra message and reveal the yes/no buttons:
+    tl.call(() => {
+      document.getElementById("extraScreenFull").style.display = "none";
+      document.getElementById("responseButtons").style.display = "flex";
+    });
 
-// Fade in the full-screen extra message over 1 second:
-tl.to("#extraScreenFull", 1, { opacity: 1 });
-
-// Hold it on screen longer (5 seconds here; adjust as needed):
-tl.to("#extraScreenFull", 1, { opacity: 1 }, "+=5");
-
-// Fade it out over 1 second:
-tl.to("#extraScreenFull", 1, { opacity: 0 });
-
-// Finally, hide the full-screen extra message and reveal the yes/no buttons:
-tl.call(() => {
-  document.getElementById("extraScreenFull").style.display = "none";
-  document.getElementById("responseButtons").style.display = "flex";
-});
-
-
-
-
-// Set up interactive behavior for the Valentine prompt:
+    // At the end of the timeline, reveal the Valentine section and animate the full-screen extra message:
+    tl.call(() => {
+      // Ensure the Valentine section is visible
+      document.getElementById("valentineSection").style.display = "block";
+      // Hide the yes/no buttons for now
+      document.getElementById("responseButtons").style.display = "none";
+      // Prepare the full-screen extra message:
+      const extraScreen = document.getElementById("extraScreenFull");
+      extraScreen.style.display = "block";
+      extraScreen.style.opacity = 0;
+    }, null, "+=1");  // Adjust the delay as needed
+    
+    
+    
+    // Set up interactive behavior for the Valentine prompt:
 const yesButton = document.getElementById("yesButton");
 const noButton = document.getElementById("noButton");
 const imageDisplay = document.getElementById("imageDisplay");
@@ -318,7 +317,13 @@ const imagePaths = [
   "img/image4.gif",
   "img/image5.gif",
   "img/image6.gif",
-  "img/image7.gif"
+  "img/image7.gif", // add 4/5 more
+  "img/image8.gif",
+  "img/image9.gif",
+  "img/image10.gif",
+  "img/image11.gif",
+  "img/image12.gif",
+
 ];
 
 noButton.addEventListener('click', function() {
@@ -330,7 +335,7 @@ noButton.addEventListener('click', function() {
       helper = 5;
     }
 
-    imageDisplay.src = imagePaths[helper];
+    imageDisplay.src = imagePaths[noClickCount];
     // Increase the Yes button's size:
     buttonHeight += 25;
     buttonWidth += 25;
@@ -365,7 +370,7 @@ noButton.addEventListener('click', function() {
 
 yesButton.addEventListener('click', () => {
   // Change to your final image (image7, index 6)
-  imageDisplay.src = imagePaths[6];
+  imageDisplay.src = imagePaths[11];
   // Update the question text:
   valentineQuestion.textContent = "Yayyy!! :3";
   // Hide the buttons:
