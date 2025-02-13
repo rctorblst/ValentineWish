@@ -284,7 +284,7 @@ const animationTimeline = () => {
     tl.to("#extraScreenFull", 1, { opacity: 1 });
     
     // Hold it on screen longer (5 seconds here; adjust as needed):
-    tl.to("#extraScreenFull", 1, { opacity: 1 }, "+=40");
+    tl.to("#extraScreenFull", 1, { opacity: 1 }, "+=50");
     
     // Fade it out over 1 second:
     tl.to("#extraScreenFull", 1, { opacity: 0 });
@@ -373,7 +373,7 @@ yesButton.addEventListener('click', () => {
   // Change to your final image (image7, index 6)
   imageDisplay.src = imagePaths[11];
   // Update the question text:
-  valentineQuestion.textContent = "YUUUPPPPPIEEEEEEEEEEEEEEEEEEEEEE :DDDDDD";
+  valentineQuestion.textContent = "YUUUPPPPPIEEEEEEEEEEEEEEEEEEEEEE :DDDDD HAPPPY VALNETINESS DAY BABBYYYYYYYYYYYYYYYYYY 🥺💝🌹❣️💞💕💓";
   // Hide the buttons:
   responseButtons.style.display = 'none';
   // Trigger a confetti animation.
