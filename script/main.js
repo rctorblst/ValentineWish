@@ -266,7 +266,20 @@ const animationTimeline = () => {
     );
 
 
-
+    
+    // At the end of the timeline, reveal the Valentine section and animate the full-screen extra message:
+    tl.call(() => {
+      // Ensure the Valentine section is visible
+      document.getElementById("valentineSection").style.display = "block";
+      // Hide the yes/no buttons for now
+      document.getElementById("responseButtons").style.display = "none";
+      // Prepare the full-screen extra message:
+      const extraScreen = document.getElementById("extraScreenFull");
+      extraScreen.style.display = "block";
+      extraScreen.style.opacity = 0;
+    }, null, "+=1");  // Adjust the delay as needed
+    
+    
     // Fade in the full-screen extra message over 1 second:
     tl.to("#extraScreenFull", 1, { opacity: 1 });
     
@@ -281,18 +294,6 @@ const animationTimeline = () => {
       document.getElementById("extraScreenFull").style.display = "none";
       document.getElementById("responseButtons").style.display = "flex";
     });
-
-    // At the end of the timeline, reveal the Valentine section and animate the full-screen extra message:
-    tl.call(() => {
-      // Ensure the Valentine section is visible
-      document.getElementById("valentineSection").style.display = "block";
-      // Hide the yes/no buttons for now
-      document.getElementById("responseButtons").style.display = "none";
-      // Prepare the full-screen extra message:
-      const extraScreen = document.getElementById("extraScreenFull");
-      extraScreen.style.display = "block";
-      extraScreen.style.opacity = 0;
-    }, null, "+=1");  // Adjust the delay as needed
     
     
     
