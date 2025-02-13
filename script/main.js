@@ -10,8 +10,8 @@ const animationTimeline = () => {
 
   hbd.innerHTML = `<span>${hbd.innerHTML
     .split("")
-    .join("</span><span>")}</span`;
-
+    .map(char => (char === " " ? "&nbsp;" : char))
+    .join("</span><span>")}</span>`;
   const ideaTextTrans = {
     opacity: 0,
     y: -20,
