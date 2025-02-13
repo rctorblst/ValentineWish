@@ -7,22 +7,50 @@
     <title>Happy Valentine :)</title>
     <link rel="stylesheet" href="style/style.css" />
     <link rel="shortcut icon" type="image/png" href="./img/heart.svg" />
-    <!-- Dynamic responsive font sizes for the extraScreenFull container -->
+    <!-- Responsive CSS for the extraScreenFull container -->
     <style>
-      /* Responsive font sizes for the #extraScreenFull heading and paragraph */
+      /* Style for the full-screen message container */
+      #extraScreenFull {
+        display: none; /* Initially hidden */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #fff0f6;
+        z-index: 1000;
+        padding: clamp(20px, 5vw, 50px); /* Responsive padding */
+        box-sizing: border-box;
+        text-align: center;
+      }
+      /* Inner content container */
+      #extraScreenFull > div {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 10px; /* extra horizontal padding for very narrow screens */
+      }
+      /* Responsive heading styling */
       #extraScreenFull h1 {
-        font-size: clamp(2.5rem, 5vw, 3rem);
+        font-size: clamp(2rem, 5vw, 3rem);
         color: #bd1e59;
         margin-bottom: 20px;
       }
+      /* Responsive paragraph styling */
       #extraScreenFull p {
-        font-size: clamp(1.5rem, 2.5vw, 2rem);
+        font-size: clamp(1.2rem, 2.5vw, 2rem);
         color: #333;
+        line-height: 1.5;
       }
-      /* Optional: Adjust container padding on smaller screens */
-      @media (max-width: 600px) {
+      /* Adjustments for very small screens */
+      @media (max-width: 480px) {
         #extraScreenFull {
-          padding: 20px;
+          padding: 10px;
+        }
+        #extraScreenFull h1 {
+          font-size: clamp(1.5rem, 4vw, 2.5rem);
+        }
+        #extraScreenFull p {
+          font-size: clamp(1rem, 3vw, 1.5rem);
         }
       }
     </style>
@@ -74,20 +102,12 @@
       <div class="seven">
         <div class="baloons">
           <img src="img/balloon.svg" alt="" />
-          <!-- <img src="img/music-note.svg" alt="" /> -->
           <img src="img/smiling.svg" />
           <img src="img/heart.svg" />
-          <!-- <img src="img/happy.svg" alt="" /> -->
           <img src="img/balloon.svg" alt="" />
-          <!-- <img src="img/music-note.svg" alt="" /> -->
-          <!-- <img src="img/smiling.svg" /> -->
           <img src="img/heart.svg" />
           <img src="img/balloon.svg" alt="" />
           <img src="img/music-note.svg" alt="" />
-          <img src="img/heart.svg" />
-          <img src="img/balloon.svg" alt="" />
-          <!-- <img src="img/music-note.svg" alt="" /> -->
-          <!-- <img src="img/smiling.svg" /> -->
           <img src="img/heart.svg" />
           <img src="img/balloon.svg" alt="" />
           <img src="img/heart.svg" />
@@ -97,49 +117,18 @@
           <img src="img/happy.svg" alt="" />
           <img src="img/balloon.svg" alt="" />
           <img src="img/heart.svg" />
-          <!-- <img src="img/music-note.svg" alt="" /> -->
-          <!-- <img src="img/heart.svg" />
-          <img src="img/happy.svg" alt="" />
-          <img src="img/balloon.svg" alt="" />
-          <img src="img/music-note.svg" alt="" /> -->
           <img src="img/smiling.svg" />
-          <!-- <img src="img/heart.svg" /> -->
-          <!-- <img src="img/happy.svg" alt="" /> -->
         </div>
       </div>
       <div class="eight">
-        <svg viewBox="0 0 40 40" xmlnssvg/heart.svg.org/2000/svg>
+        <svg viewBox="0 0 40 40">
           <circle cx="20" cy="20" r="20" />
         </svg>
-        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="20" cy="20" r="20" />
-        </svg>
-        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="20" cy="20" r="20" />
-        </svg>
-        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="20" cy="20" r="20" />
-        </svg>
-        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="20" cy="20" r="20" />
-        </svg>
-        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="20" cy="20" r="20" />
-        </svg>
-        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="20" cy="20" r="20" />
-        </svg>
-        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="20" cy="20" r="20" />
-        </svg>
-        <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="20" cy="20" r="20" />
-        </svg>
+        <!-- Other SVG circles can go here -->
       </div>
       <div class="nine">
         <!-- Valentine prompt section: initially hidden -->
         <div id="valentineSection" style="display: none; text-align: center; margin-top: 20px;">
-          <!-- Valentine image and question -->
           <img
             id="imageDisplay"
             src="img/image1.gif"
@@ -149,7 +138,6 @@
           <h2 id="valentineQuestion" style="font-size: 2rem; color: #bd1e59; margin-bottom: 20px;">
             Will you be my Valentine?
           </h2>
-          
           <!-- Yes/No buttons (initially hidden) -->
           <div id="responseButtons" style="display: none; gap: 20px; justify-content: center;">
             <button
@@ -167,28 +155,27 @@
               No
             </button>
           </div>
-          
           <!-- Full-Screen Extra Message Container -->
-          <div
-            id="extraScreenFull"
-            style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #fff0f6; z-index: 1000; padding: 50px; box-sizing: border-box; text-align: center;"
-          >
-            <div style="max-width: 800px; margin: 0 auto;">
+          <div id="extraScreenFull">
+            <div>
               <h1>My sweet little girl</h1>
               <p>
-                Words cant begin to describe how much I truly love and appreciate you ❤️, your sweet charm makes every moment worth living 🍯. The way you touch my soul with your sweet and
-                kind voice is out of this world 💕, you're the partner every heart dreams of having by its side, and you have been my dream ✨. I love you so much my sweet little angel..
-                no matter how many times I repeat it over and over I can never truly express the depths of my feelings towards you 💕.
+                Words cant begin to describe how much I truly love and appreciate you ❤️, your sweet charm makes every moment worth living 🍯. The way you touch my soul with your sweet and kind voice is out of this world 💕, you're the partner every heart dreams of having by its side, and you have been my dream ✨. I love you so much my sweet little angel.. no matter how many times I repeat it over and over I can never truly express the depths of my feelings towards you 💕.
                 <br /><br />
-                Every little thing you do does not go unnoticed, no matter how small it may seem on the outside, I constantly think about you and how you talk to me in such a lovey way 💞, I always think of the happiness and joy that overflows your sweet heart everytime you think of me and im forever grateful for that💓,
-                everytime you miss me I feel an overwhelming warmth in my heart ❤️‍🔥, everytime you wish me to have a lovely day I get reassured and uplifted ❣️, everytime you wish that im sleeping well and comfy my heart feels complete and full 💝, your existence in my life has
-                made everything so much better 🌹, lighting up my world in ways I never thought possible. I treasure every moment we share and I love you so much more with each passing
-                day, I love you so much my lil tofi 🥺❤️🎀.
+                Every little thing you do does not go unnoticed, no matter how small it may seem on the outside, I constantly think about you and how you talk to me in such a lovey way 💞, I always think of the happiness and joy that overflows your sweet heart everytime you think of me and im forever grateful for that💓, everytime you miss me I feel an overwhelming warmth in my heart ❤️‍🔥, everytime you wish me to have a lovely day I get reassured and uplifted ❣️, everytime you wish that im sleeping well and comfy my heart feels complete and full 💝, your existence in my life has made everything so much better 🌹, lighting up my world in ways I never thought possible. I treasure every moment we share and I love you so much more with each passing day, I love you so much my lil tofi 🥺❤️🎀.
               </p>
             </div>
             <!-- Optional side images -->
-            <img src="img/deco3.gif" alt="Left Decoration" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); width: 100px;" />
-            <img src="img/deco2.gif" alt="Right Decoration" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); width: 100px;" />
+            <img
+              src="img/deco3.gif"
+              alt="Left Decoration"
+              style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); width: 100px;"
+            />
+            <img
+              src="img/deco2.gif"
+              alt="Right Decoration"
+              style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); width: 100px;"
+            />
           </div>
         </div>
         <p class="last-smile">:)</p>
