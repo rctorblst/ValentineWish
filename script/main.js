@@ -284,7 +284,7 @@ const animationTimeline = () => {
     tl.to("#extraScreenFull", 1, { opacity: 1 });
     
     // Hold it on screen longer (5 seconds here; adjust as needed):
-    tl.to("#extraScreenFull", 1, { opacity: 1 }, "+=50");
+    tl.to("#extraScreenFull", 1, { opacity: 1 }, "+=45");
     
     // Fade it out over 1 second:
     tl.to("#extraScreenFull", 1, { opacity: 0 });
